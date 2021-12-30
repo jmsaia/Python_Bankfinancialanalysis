@@ -6,9 +6,8 @@ import csv
 total_months = 0
 net_total = 0
 net_change_list = []
-month_of_change =[]
-greatest_increase = ["",0]
-greatest_decrease = ["",0]
+greatest_increase = ["",-999999]
+greatest_decrease = ["",999999]
 
 # Files to load and output (need to be changed if directory is changed)
 csvpath = os.path.join("Resources", "budget_data.csv")
@@ -43,7 +42,6 @@ with open (csvpath, newline='') as csvfile:
         net_change = (profit_loss - prev_pl)
         prev_pl = profit_loss
         net_change_list += [net_change]
-        month_of_change += [date]
 
         average_change = sum(net_change_list) / len(net_change_list)
 
